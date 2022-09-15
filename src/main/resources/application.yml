@@ -1,0 +1,15 @@
+micronaut.application.name: mysqlSsl
+datasources:
+  default:
+    url: jdbc:mysql://${JDBC_HOST}:${JDBC_PORT}/${JDBC_DBNAME}
+          ?verifyServerCertificate=true&useSSL=true&requireSSL=true&
+          &clientCertificateKeyStoreUrl=file:${JDBC_KEYSTORE_PATH}
+          &clientCertificateKeyStorePassword=${JDBC_KEYSTORE_PASSWORD}
+          &trustCertificateKeyStoreUrl=file:${JDBC_TRUSTSTORE_PATH}
+          &trustCertificateKeyStorePassword=${JDBC_TRUSTSTORE_PASSWORD}
+    username: ${JDBC_USERNAME}
+    password: ${JDBC_PASSWORD}
+    driverClassName: com.mysql.cj.jdbc.Driver
+    dialect: MYSQL
+netty.default.allocator.max-order: 3
+jpa.default.properties.hibernate.hbm2ddl.auto: none
